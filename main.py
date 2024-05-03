@@ -1,7 +1,8 @@
 """Some simple authentication examples."""
 
 from __future__ import annotations
-
+import logging
+import pandas as pd
 from collections import Counter
 from typing import cast
 from jira import JIRA
@@ -32,4 +33,4 @@ issues = cast(ResultList[Issue], jira.search_issues("assignee=admin"))
 
 # Find the top three projects containing issues reported by admin
 top_three = Counter([issue.fields.project.key for issue in issues]).most_common(3)
-print(issues)
+print(df.issues())
